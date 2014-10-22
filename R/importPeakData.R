@@ -13,7 +13,7 @@ importPeakData <- function( filename, pcode, conditions) {
 
   dataIn <- melt(read.table(filename, header=T, quote="\""))
 
-  split <- colsplit(dataIn$variable, "[.]", c("labels", "d1", "d2", "d3", "datatype"))[,c(1,5)]
+  split <- colsplit(dataIn$variable, "[.]", c("labels", "d1", "datatype"))[,c(1,3)]
   peaklab <- ifelse(substr(split$labels, 2, 2) == "M", substr(split$labels, 1, 3), substr(split$labels, 1, 2))
   eleclab <- ifelse(substr(split$labels, 2, 2) == "M", substr(split$labels, 4, nchar(split$labels)-1), substr(split$labels, 3, nchar(split$labels)-1))
 
