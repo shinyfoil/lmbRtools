@@ -1,8 +1,20 @@
-Package: lmb-rtools
+Package: lmbRtools
 Title: Tools for EEG data processing in R
 Version: 0.1
 Authors@R: "Richard Mah <mahrl@mcmaster.ca> [aut, cre]"
-Description: What the package does (one paragraph)
-Depends: R (>= 3.1.1)
+Description: Stuff to do stuff...
+Depends:
+    R (>= 3.1.1)
 License: GPL-3
 LazyData: true
+Imports:
+    compute.es,
+    car,
+    ggplot2,
+    multcomp,
+    pastecs,
+    WRS,
+    stats,
+    reshape,
+    plyr,
+    stringr
