@@ -11,7 +11,7 @@ importPeakData <- function( filename, pcode, conditions) {
   require(plyr)
   require(stringr)
 
-  dataIn <- melt(read.table(filename, header=T, quote="\""))
+  dataIn <- suppressMessages(melt(read.table(filename, header=T, quote="\"")))
 
   split <- colsplit(dataIn$variable, "[.]", c("labels", "d1", "datatype"))[,c(1,3)]
   peaklab <- ifelse(substr(split$labels, 2, 2) == "M", substr(split$labels, 1, 3), substr(split$labels, 1, 2))
