@@ -2,10 +2,11 @@
 #'
 #' @param filename A string containing the filename of the file to be imported
 #' @param pcode A string containing the participant code
-#' @param conditions A list of strings containing the condition labels
+#' @param conditions A list of strings containing the condition cell labels
+#' @param labels A list of strings containing the condition names
 #' @return A data frame containing properly formatted peak and area data from BVA
 
-importPeakData <- function( filename, pcode, conditions) {
+importPeakData <- function( filename, pcode, conditions, labels ) {
 
   require(reshape2)
   require(plyr)
@@ -20,9 +21,12 @@ importPeakData <- function( filename, pcode, conditions) {
   partlab <- rep(pcode, length(dataIn[,1]))
   data <- data.frame(partlab)
 
-  for(x in conditions) {
-    tmplab <- data.frame(rep(x, length(dataIn[,1])))
-    names(tmplab) <- x
+  if(length(conditions) != length(labels))
+    stop("importPeakData: Unequal number of condition labels and names")
+
+  for(i in 1:length(conditions)) {
+    tmplab <- data.frame(rep(conditions[[i]], length(dataIn[,1])))
+    names(tmplab) <- labels[[i]]
     data <- data.frame(data, tmplab)
   }
 
