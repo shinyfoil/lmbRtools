@@ -118,10 +118,10 @@ nemoROI <- function( elec ){
           T10   = return("RT_C"),
 
           ## RIGHT TEMPORAL - PARIETAL
-          TP8   = return("RT_P"),
-          TP10  = return("RT_P"),
-          T8    = return("RT_P"),
-          T10   = return("RT_P"),
+          P8   = return("RT_P"),
+          P10  = return("RT_P"),
+          TP8    = return("RT_P"),
+          TP10   = return("RT_P"),
 
           ## RIGHT TEMPORAL - OCCIPITAL
           PO8   = return("RT_O"),
